@@ -1,0 +1,23 @@
+;loop to find a weakly stable matching
+
+while there is an un-matched tenant:{
+	choose an un-matched tenant T
+		let T ask the landlord L who owns his highest pref apt. A
+		
+		if is open, then match A and T
+		else if L prefers T over his current T':
+			match T and L, T' becomes un-matched
+		else T remains unmatched
+}
+
+;checks if matching is stable
+
+for each tenant T:{
+	if T is not matched with his highest pref apt. A:
+		let T ask each of A' that is higher pref than A
+			if landlord L of A prefers T more than current tenant T':
+				return false; ie, not weakly stable
+}
+
+;path to test files
+C:\Users\Ban-Yun\Documents\old toshiba documents\000classstuff\ee360c\lab1\TestInputs\small_inputs
